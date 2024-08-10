@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  devise_scope :user do
+    get "/users" => "devise/registrations#index"
+  end
+
   root "contacts#index"
+
   resources :contacts
   
   get "up" => "rails/health#show", as: :rails_health_check
