@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
+
   devise_scope :user do
-    get "/users" => "devise/registrations#index"
+    get '/users', to: "users/registrations#index"
   end
 
   root "contacts#index"
